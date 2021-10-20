@@ -24,15 +24,17 @@ print('-=' * 30)
 print(f'Cod  {"nome":<20} {"gols":<15} total')
 print('--' * 30)
 for i in range(0, len(time)):
-    print(
-        f'{i:>3}  {time[i]["nome"]:<20} {str(time[i]["gols"]):<15} {time[i]["total"]}')
+    print(f'{i:>3}  {time[i]["nome"]:<20} {str(time[i]["gols"]):<15} {time[i]["total"]}')
 print('--' * 30)
 while True:
     escolhido = int(input('Mostrar dados de qual jogador? (999 para sair): '))
     if escolhido == 999:
         break
-    print(f'-- LEVANTAMENTO DO JOGADOR {time[escolhido]["nome"]}:')
-    for i in range(0, len(time[escolhido]['gols'])):
-        print(f'   No jogo {i + 1} fez {time[escolhido]["gols"][i]} gols')
-    print('-=' * 30)
+    if escolhido >= len(time):
+        print(f'ERRO! Não existe jogador com código {escolhido}.')
+    else: 
+        print(f'-- LEVANTAMENTO DO JOGADOR {time[escolhido]["nome"]}:')
+        for i, g in enumerate(time[escolhido]['gols']):
+            print(f'   No jogo {i + 1} fez {g} gols.')
+        print('-=' * 30)
 print('<< ENCERRANDO ... >>')
