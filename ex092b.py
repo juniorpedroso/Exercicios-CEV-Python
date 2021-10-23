@@ -1,7 +1,7 @@
 # Exercício 92 apresentando na aula 19 do Curso em Vídeo
 # Segunda VERSÃO
 from datetime import datetime
-ano = datetime.now().year
+ano = datetime.now().year  # Como buscar o ano atual usando a função now()
 nasctemp = ''
 print('-=' * 22)
 print(f'{"-<" * 4}{"  CADASTRO DE FUNCIONÁRIOS  "}{">-" * 4}')
