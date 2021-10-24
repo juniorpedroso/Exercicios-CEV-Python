@@ -17,12 +17,14 @@ def fatorial(n, show=False):
                 print(f'{cont} = ', end='')
             else:
                 print(f'{cont} X ', end='')
-        fat = cont * fat
+        fat *= cont
         cont -= 1
     return fat
 
 
 # Programa principal
+print('-' * 50)
 print(fatorial(5))
 print(fatorial(7, True))
+print('-' * 50)
 help(fatorial)
