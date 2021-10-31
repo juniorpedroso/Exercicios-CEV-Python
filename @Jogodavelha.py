@@ -2,20 +2,42 @@ from random import randint
 from time import sleep
 
 
+def linha(nlin):
+    for n in range(0, 3):
+        if n == 2:    # Verificação se é a última coluna, para quebra de linha
+            print('|', end='')
+            if el[nlin][n] == 'X':  # Verifica se a posição é um X ou O ou vazio
+                # Se for X, pinta de amarelo
+                print('\033[1;33m   X   \033[m|')
+            elif el[nlin][n] == 'O':
+                print('\033[1;32m   O   \033[m|')   # Se for O, pinta de verde
+            else:
+                # Se for vazio, pinta branco, normal
+                print(f'{el[nlin][n]:^7}|')
+        else:
+            print('|', end='')
+            if el[nlin][n] == 'X':
+                print('\033[1;33m   X   \033[m', end='')
+            elif el[nlin][n] == 'O':
+                print('\033[1;32m   O   \033[m', end='')
+            else:
+                print(f'{el[nlin][n]:^7}', end='')
+
+
 def mostraQuadro():
     # Esta função recebe a lista com os elementos cadastrados na lista elementos
     # e preenche a tela com as alterações.
     print('+-------+-------+-------+')
     print('|       |       |       |')
-    print(f'|{el[0][0]:^7}|{el[0][1]:^7}|{el[0][2]:^7}|')
+    linha(0)  # Chama a função linha para prencher os elementos, de acordo com a cor
     print('|       |       |       |')
     print('+-------+-------+-------+')
     print('|       |       |       |')
-    print(f'|{el[1][0]:^7}|{el[1][1]:^7}|{el[1][2]:^7}|')
+    linha(1)  # Chama a função linha para prencher os elementos, de acordo com a cor
     print('|       |       |       |')
     print('+-------+-------+-------+')
     print('|       |       |       |')
-    print(f'|{el[2][0]:^7}|{el[2][1]:^7}|{el[2][2]:^7}|')
+    linha(2)  # Chama a função linha para prencher os elementos, de acordo com a cor
     print('|       |       |       |')
     print('+-------+-------+-------+')
 
@@ -80,7 +102,8 @@ def compMovimento():
 el = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]   # Elementos do tabuleiro
 indice = ((0, 0), (0, 1), (0, 2), (1, 0),
           (1, 1), (1, 2), (2, 0), (2, 1), (2, 2))
-#            1       2       3       4       5       6       7       8       9
+#            1       2       3       4  
+#            5       6       7       8       9
 ganhador = ' '
 
 mostraQuadro()
