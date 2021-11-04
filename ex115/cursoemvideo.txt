@@ -1,0 +1,6 @@
+Julio;34
+Mauro;58
+Pedro;21
+Junior;50
+José;31
+João;70

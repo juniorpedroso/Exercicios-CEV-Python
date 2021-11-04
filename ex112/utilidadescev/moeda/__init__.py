@@ -66,4 +66,19 @@ def moeda(preco=0, moeda='R$'):
     Returns:
         [type]: [Valor formatado]
     """
-    return f'{moeda} {preco:.2f}'.replace('.', ',')
+    return f'{moeda}{preco:.2f}'.replace('.', ',')
+
+
+def resumo(preco, aum=0, dim=0):
+    print('-' * 28)
+    print(f'{"RESUMO DO VALOR":^28}')
+    #print('RESUMO DO VALOR'.center(30))
+    print('-' * 28)
+    print(f'Preço analisado:  {moeda(preco):>10}')
+    print(f'Dobro do preço:   {dobro(preco):>10}')
+    print(f'Metade do preço:  {metade(preco):>10}')
+    if aum > 0:
+        print(f'{aum:>2}% de aumento:   {aumentar(preco, aum):>10}')
+    if dim > 0:
+        print(f'{dim:>2}% de redução:   {diminuir(preco, dim):>10}')
+    print('-' * 28)
